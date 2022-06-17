@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkvue_board_bootstrap"]=self["webpackChunkvue_board_bootstrap"]||[]).push([[185],{99185:function(u,e,l){l.r(e);var t,a,o=l(1001),r={},s=(0,o.Z)(r,t,a,!1,null,null,null);e["default"]=s.exports}}]);
+//# sourceMappingURL=185-legacy.1134e83a.js.map

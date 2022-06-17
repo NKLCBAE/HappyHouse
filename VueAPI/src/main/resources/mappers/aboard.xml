@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssafy.vue.mapper.AboardMapper">
+
+	<!-- 답변글 전체 조회 -->
+	<select id="selectAboard" resultType="aboard">
+		select answerno, questionno, userid, content, hit, regtime
+		from aboard
+		order by answerno desc
+	</select>
+	
+	<!-- 선택한 질문에 대한 답변글 조회 -->
+	<select id="selectAboardByNo" resultType="aboard">
+		select answerno, questionno, userid, content, hit, regtime
+		from aboard
+		where questionno = #{articleno}
+		order by answerno desc;
+	</select>
+
+	<!-- 답변글 등록 -->
+	<insert id="insertAboard" parameterType="aboard">
+		insert into aboard(
+			userid, content, questionno
+		) values (
+			#{userid}, #{content}, #{questionno}
+		)
+	</insert>
+	
+	<!-- 답변글 수정 -->
+	<update id="updateAboard" parameterType="aboard">
+		update aboard 
+           set userid = #{userid}, 
+           content = #{content}
+           where answerno = #{answerno}
+	</update>
+
+	<!-- 답변글 삭제 -->
+	<delete id="deleteAboard" parameterType="int">
+		delete 
+		from aboard 
+		where answerno = #{answerno}
+	</delete>
+	
+	<!-- 답변글 상세 조회 -->
+	<select id="getAboard" resultType="aboard">
+		select answerno, questionno, userid, content, hit, regtime
+		from aboard 
+		where answerno= #{answerno}
+	</select>
+
+</mapper>
+
